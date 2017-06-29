@@ -7,11 +7,11 @@ class Heap():
         self.heap=[0]
         self.size=0
         self.root=self.heap[0]
-        if heap_type=="min" or heap_type=="max":
+        if heap_type=="min" or heap_type=="max": # Heap can be either min or max
             self.heap_type=heap_type
         else:
             raise AttributeError("Must be a min or max heap!")
-    def heapifyAdd(self,i):
+    def heapifyAdd(self,i): # propagates change from end of list to root
         while i // 2 > 0:
             if self.heap_type=="min":
                 switchy=(self.heap[i] < self.heap[i // 2])
@@ -27,7 +27,7 @@ class Heap():
         self.size+=1
         self.heapifyAdd(self.size)
         self.root=self.heap[1]
-    def heapifyRemove(self,i):
+    def heapifyRemove(self,i): # propagates change from root to end 
         while (i * 2) <= self.size:
             mc = self.mChild(i)
             if self.heap_type=="min":
@@ -39,7 +39,7 @@ class Heap():
                 self.heap[i] = self.heap[mc]
                 self.heap[mc] = tmp
             i = mc
-    def mChild(self,i):
+    def mChild(self,i): # either min or max child
         if i * 2 + 1 > self.size:
             return i * 2
         else:

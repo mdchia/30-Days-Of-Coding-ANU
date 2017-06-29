@@ -26,16 +26,16 @@ function main() {
     var n = parseInt(m_temp[1]);
     magazine = readLine().split(' ');
     ransom = readLine().split(' ');
-    if (n>m){
+    if (n>m){ // Check that we have enough words in the magazine to start with
         process.stdout.write("No");
         return false;
     }
-    for (var i = 0, len = ransom.length; i < len; i++) {
+    for (var i = 0, len = ransom.length; i < len; i++) { // Loop through all ransom words
         var mag_word = magazine.indexOf(ransom[i]);
-        if (mag_word===-1){
+        if (mag_word===-1){ // if we can't find the word
             process.stdout.write("No");
             return false;
-        } else {
+        } else { // else remove the word once
             magazine.splice(mag_word, 1);
         }
     }

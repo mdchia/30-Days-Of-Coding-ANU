@@ -3,18 +3,19 @@ def housePath(nums, curr_index, curr_val, max_val_at_index):
     if curr_index not in max_val_at_index:
         max_val_at_index[curr_index]=curr_val # initialise value
     else:
-        if max_val_at_index[curr_index]<curr_val:
-            max_val_at_index[curr_index]=curr_val
+        if max_val_at_index[curr_index]<curr_val: # is this the maximum value we can get up to this index?
+            max_val_at_index[curr_index]=curr_val # if it is, update the max
         else:
-            return curr_val # don't go down this path if it's less than another path
+            return curr_val # if it's not, don't go down this path
+    # To avoid consecutive numbers but maximise houses visited, either two or three houses ahead
     if curr_index+3 < len(nums):
-        print(curr_index)
+        # print(curr_index) # debugging
         route1=housePath(nums, curr_index+2, curr_val, max_val_at_index)
         route2=housePath(nums, curr_index+3, curr_val, max_val_at_index)
-        return max((route1,route2))
+        return max((route1,route2)) # which of those options gave us the most value?
     if curr_index+2 < len(nums):
         route1=housePath(nums, curr_index+2, curr_val, max_val_at_index)
-        return route1
+        return route1 # if we're third last
     return curr_val # if we're last/second last
     # print(max_val_at_index) # debugging
 

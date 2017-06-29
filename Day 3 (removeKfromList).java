@@ -9,6 +9,7 @@
 //
 
 //note: this crashes via stack overflow for large lists
+// reimplementation of Haskell algorithm, which doesn't work well in Java
 ListNode<Integer> removeKFromList(ListNode<Integer> l, int k) {
     if (l==null)
         return null;

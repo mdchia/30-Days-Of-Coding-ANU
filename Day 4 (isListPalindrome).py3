@@ -13,12 +13,12 @@ def isListPalindrome(l):
         prev=None
         curr=l_n
         nexty=None
-        while curr!=None:
+        while curr!=None: # reshuffle pointers
             nexty=curr.next
             curr.next=prev
             prev=curr
             curr=nexty
-        return prev
+        return prev # this'll be the head of the reversed list
     def isEqualLists(l1,l2):
         curr1=l1
         curr2=l2

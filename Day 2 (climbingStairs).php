@@ -9,7 +9,7 @@ function climbingStairs($n) {
     if($n==2){
         return $n2;
     }
-    for($x=1; $x<=$n; $x++){
+    for($x=1; $x<=$n; $x++){ // Iterative fibonacci sequence generator
         $n0=$n1;
         $n1=$n2;
         $n2=$n1+$n0;
