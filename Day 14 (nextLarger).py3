@@ -1,13 +1,10 @@
 def nextLarger(a):
-    def is_larger(x,i):
-        return x>i
     if a==[]:
         return []
     nums_seen=[]
     a.reverse()
-    l=a
     new_list=[]
-    for i in l:
+    for i in a:
         larger_elements=[x for x in nums_seen if x>i]
         nums_seen.append(i)
         #print(larger_elements)
